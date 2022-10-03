@@ -2,7 +2,27 @@ package com.a4s.EscolaAPI.estudante;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Estudante {
+
+    @Id
+    @SequenceGenerator(
+        name = "estudante_sequence",
+        sequenceName = "estudante_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "estudante_sequence"
+    )
     private Long id;
     private String nome;
     private String email;
