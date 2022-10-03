@@ -13,3 +13,4 @@ public class EscolaApiApplication {
 
 }
 //https://youtu.be/9SGDpanrc8U?t=1986
+//https://www.youtube.com/watch?v=BLH3s5eTL4Y&list=WL&index=13&t=391s PostgrSQL
