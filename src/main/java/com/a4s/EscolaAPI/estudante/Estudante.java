@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table
+@Entity //para hibernate
+@Table //table do database
 public class Estudante {
 
     @Id
@@ -29,6 +29,9 @@ public class Estudante {
     private LocalDate dod;
     private Integer idade;
 
+    public Estudante() {
+
+    }
     public Estudante(Long id, String nome, String email, LocalDate dod, Integer idade) {
         this.id = id;
         this.nome = nome;
