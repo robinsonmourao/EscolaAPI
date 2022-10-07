@@ -15,7 +15,7 @@ public class EstudanteController {
     
     @Autowired
     public EstudanteController(EstudanteService estudanteService) {
-        this.estudanteService = new EstudanteService();
+        this.estudanteService = estudanteService;
     }
 
     @GetMapping
