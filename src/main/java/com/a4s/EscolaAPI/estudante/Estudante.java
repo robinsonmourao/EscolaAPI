@@ -2,12 +2,7 @@ package com.a4s.EscolaAPI.estudante;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity //para hibernate
 @Table //table do database
@@ -27,6 +22,7 @@ public class Estudante {
     private String nome;
     private String email;
     private LocalDate dod;
+    @Transient //idade vai ser calculada antes
     private Integer idade;
 
     public Estudante() {
