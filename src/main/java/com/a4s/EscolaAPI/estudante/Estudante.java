@@ -1,6 +1,7 @@
 package com.a4s.EscolaAPI.estudante;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import javax.persistence.*;
 
@@ -21,26 +22,24 @@ public class Estudante {
     private Long id;
     private String nome;
     private String email;
-    private LocalDate dod;
-    @Transient //idade vai ser calculada antes
+    private LocalDate dataDeNascimento;
+    @Transient //Idade vai ser calculada ao inves de armazenada no Database
     private Integer idade;
 
     public Estudante() {
 
     }
-    public Estudante(Long id, String nome, String email, LocalDate dod, Integer idade) {
+    public Estudante(Long id, String nome, String email, LocalDate dataDeNascimento) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.dod = dod;
-        this.idade = idade;
+        this.dataDeNascimento = dataDeNascimento;
     }    
 
-    public Estudante(String nome, String email, LocalDate dod, Integer idade) {
+    public Estudante(String nome, String email, LocalDate dataDeNascimento) {
         this.nome = nome;
         this.email = email;
-        this.dod = dod;
-        this.idade = idade;
+        this.dataDeNascimento = dataDeNascimento;
     }
 
     public Long getId() {
@@ -61,14 +60,13 @@ public class Estudante {
     public void setEmail(String email) {
         this.email = email;
     }
-    public LocalDate getDod() {
-        return dod;
+    public LocalDate getDataDeNascimento() { return dataDeNascimento;
     }
-    public void setDod(LocalDate dod) {
-        this.dod = dod;
+    public void setDataDeNascimento(LocalDate dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
     }
     public Integer getIdade() {
-        return idade;
+        return Period.between(this.dataDeNascimento, LocalDate.now()).getYears();
     }
     public void setIdade(Integer idade) {
         this.idade = idade;
@@ -76,7 +74,7 @@ public class Estudante {
 
     @Override
     public String toString() {
-        return "Estudante [id=" + id + ", nome=" + nome + ", email=" + email + ", dod=" + dod + ", idade=" + idade
+        return "Estudante [id=" + id + ", nome=" + nome + ", email=" + email + ", dataDeNascimento=" + dataDeNascimento + ", idade=" + idade
                 + "]";
     }
     
