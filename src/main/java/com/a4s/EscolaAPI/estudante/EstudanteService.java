@@ -22,4 +22,7 @@ public class EstudanteService {
 		return estudanteRepository.findAll();
 	}
 
+	public void addNewEstudante(Estudante estudante) {
+		System.out.println(estudante);
+	}
 }
