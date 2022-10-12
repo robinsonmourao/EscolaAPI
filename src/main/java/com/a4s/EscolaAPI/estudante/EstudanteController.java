@@ -18,15 +18,19 @@ public class EstudanteController {
 
     @GetMapping
     public List<Estudante> getEstudantes(){
+
         return estudanteService.getEstudantes();
     }
 
-
     @PostMapping //Post quando voce quer adicionar novos recursos so database
-
     public void registerNewEstudante(
             //Pega a requisição de mapeamento e entao mapeia para o estudante
             @RequestBody Estudante estudante){
         estudanteService.addNewEstudante(estudante);
+    }
+    @DeleteMapping(path = "{estudanteId}")
+    public void deleteEstudante(
+            @PathVariable("estudanteId") Long estudanteId){
+        estudanteService.deleteEstudante(estudanteId);
     }
 }
