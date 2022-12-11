@@ -22,6 +22,7 @@ public class Estudante {
     private Long id;
     private String nome;
     private String email;
+
     private LocalDate dataDeNascimento;
     @Transient //Idade vai ser calculada ao inves de armazenada no Database
     private Integer idade;
